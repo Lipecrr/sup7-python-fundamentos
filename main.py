@@ -2,8 +2,12 @@ from src import variaveis
 from src import funcoes
 from src import conversoes
 from src import input_usuario
+from src.inputs import exemplo_questionary
+
 
 def main():
+    exemplo_questionary.exemplos()
+
     # Exemplos de variáveis
     # variaveis.exemplo_strings()
     # variaveis.apresentar_dados_paciente()
@@ -24,7 +28,7 @@ def main():
     # input_usuario.solicitar_int()
 
     # funcoes.calcular_calor_compra_paraguai()
-    funcoes.exercicio_aluno()
+    # funcoes.exercicio_aluno()
 
 if __name__ == "__main__":
     main() # executar uma função chamada de main(principal)
