@@ -3,10 +3,12 @@ from src import funcoes
 from src import conversoes
 from src import input_usuario
 from src.inputs import exemplo_questionary
-
+from src.exercicios import exercicio_variaveis
 
 def main():
-    exemplo_questionary.exemplos()
+    exercicio_variaveis.exercicios_dados_produto()
+
+    # exemplo_questionary.exemplos()
 
     # Exemplos de variáveis
     # variaveis.exemplo_strings()
