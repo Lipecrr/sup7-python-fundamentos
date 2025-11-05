@@ -1,6 +1,6 @@
 from datetime import datetime
-from questionary import select
-
+from questionary import select , confirm
+import os
 categorias = [
     "Esportes",
     "Roupas Esportivas",
@@ -30,7 +30,7 @@ def exercicios_dados_produto():
     data_vencimento = datetime.strptime(data_venc_str, "%d/%m/%Y").date()
     hoje = datetime.today().date()
     regiao_entrega = select("Escolha a região de entrega: ", choices=regioes).ask()
-    solicitar_cupom: str = input("Digite um cupom promocional: ").strip()
+    solicitar_cupom = input("Digite um cupom promocional: ").strip().upper()
     desconto : float = 0
 
     if data_vencimento < hoje:
@@ -41,7 +41,7 @@ def exercicios_dados_produto():
         desconto = 10
     elif categoria_escolhida == "Roupas Esportivas":
         desconto = 15
-    elif categoria_escolhida == "Calçados":
+    elif categoria_escolhida == "Calças":
         desconto = 20
     elif categoria_escolhida == "Acessórios":
         desconto = 12
@@ -95,7 +95,7 @@ def exercicios_dados_produto():
 
     total = total - (desconto_cupom / 100)
 
-    print(f"""🧾 RESUMO DO PEDIDO
+    resumo = f"""🧾 RESUMO DO PEDIDO
 ------------------------------------
 Produto: {nome}
 Categoria: {categoria_escolhida}
@@ -112,4 +112,19 @@ Frete: R$ {valor_frete:.2f}
 📦 Região: {regiao_entrega}
 ------------------------------------
 Obrigado por comprar conosco! 😄
-""")
+"""
+
+    print(resumo)
+    
+    salvar = confirm("Deseja salvar o resumo do pedido em um arquivo .txt na área de trabalho?").ask()
+
+    if salvar:
+        caminho_desktop = os.path.expanduser("~/Desktop")
+        caminho_arquivo = os.path.join(caminho_desktop, "resumo_pedido.txt")
+
+        with open(caminho_arquivo, "w", encoding="utf-8") as arquivo:
+            arquivo.write(resumo)
+
+        print(f"\n✅ Arquivo 'resumo_pedido.txt' foi salvo na área de trabalho com sucesso!")
+    else:
+        print("\nResumo não foi salvo. Obrigado por usar o sistema! 😊")
