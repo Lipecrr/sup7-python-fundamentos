@@ -4,10 +4,16 @@ from src import conversoes
 from src import input_usuario
 from src.inputs import exemplo_questionary
 from src.exercicios import exercicio_variaveis
-from src import dicionarios
+from src.exercicio_pratico_json import resolucao
+from src.exercicio_pratico_json import exercicios
 
 def main():
-    dicionarios.exemplo_dicionario_aluno()
+
+    exercicios.exercicio_01()
+    exercicios.exercicio_02()
+    exercicios.exercicio_03()
+
+    # resolucao.resolver()
 
     # exercicio_variaveis.exercicios_dados_produto()
 
