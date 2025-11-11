@@ -4,9 +4,12 @@ from src import conversoes
 from src import input_usuario
 from src.inputs import exemplo_questionary
 from src.exercicios import exercicio_variaveis
+from src import dicionarios
 
 def main():
-    exercicio_variaveis.exercicios_dados_produto()
+    dicionarios.exemplo_dicionario_aluno()
+
+    # exercicio_variaveis.exercicios_dados_produto()
 
     # exemplo_questionary.exemplos()
 
