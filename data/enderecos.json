@@ -1,0 +1,86 @@
+[ 
+    [
+        "Av. Paulista",
+        1000,
+        "Bela Vista",
+        "01310-100",
+        "SP"
+    ],
+    [
+        "Rua das Laranjeiras",
+        45,
+        "Laranjeiras",
+        "22240-003",
+        "RJ"
+    ],
+    [
+        "Rua XV de Novembro",
+        321,
+        "Centro",
+        "80020-310",
+        "PR"
+    ],
+    [
+        "Av. do Contorno",
+        2222,
+        "Funcionários",
+        "30110-012",
+        "MG"
+    ],
+    [
+        "Rod. João Paulo",
+        870,
+        "João Paulo",
+        "88030-300",
+        "SC"
+    ],
+    [
+        "Av. Ipiranga",
+        1500,
+        "Azenha",
+        "90160-093",
+        "RS"
+    ],
+    [
+        "Rua da Aurora",
+        250,
+        "Boa Vista",
+        "50050-000",
+        "PE"
+    ],
+    [
+        "Av. Barão de Itapura",
+        200,
+        "Cambuí",
+        "13024-300",
+        "SP"
+    ],
+    [
+        "Av. Beira Mar",
+        3000,
+        "Meireles",
+        "60165-120",
+        "CE"
+    ],
+    [
+        "Av. Oceânica",
+        120,
+        "Barra",
+        "40140-130",
+        "BA"
+    ],
+    [
+        "Av. Djalma Batista",
+        900,
+        "Chapada",
+        "69050-220",
+        "AM"
+    ],
+    [
+        "SQS 308 Bloco A",
+        12,
+        "Asa Sul",
+        "70353-010",
+        "DF"
+    ]
+]
