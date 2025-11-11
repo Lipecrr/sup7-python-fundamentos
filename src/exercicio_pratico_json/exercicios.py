@@ -52,7 +52,7 @@ def exercicio_03():
         dados = [rua, numero, bairro, cep, uf]
         enderecos.append(dados)
 
-        escrever_json(enderecos, "data/enderecos.json")
+    escrever_json(enderecos, "data/enderecos.json")
 
 
 def exercicio_04():
@@ -69,4 +69,41 @@ def exercicio_04():
         email = dados_pessoais.get("email")
         telefone = dados_pessoais.get("telefone")
 
-        
+        dados = {
+            "email": email,
+            "telefone": telefone
+        }
+        if uf == "SP":
+            sp.append(dados)
+        elif uf == "RJ":
+            rj.append(dados)
+        elif uf == "PR":
+            pr.append(dados)
+        elif uf == "MG":
+            mg.append(dados)
+        elif uf == "SC":
+            sc.append(dados)
+        elif uf == "RS":
+            rs.append(dados)
+        elif uf == "PE":
+            pe.append(dados)
+        elif uf == "CE":
+            ce.append(dados)
+        elif uf == "BA":
+            ba.append(dados)
+        elif uf == "AM":
+            am.append(dados)
+        elif uf == "DF":
+            df.append(dados)
+
+    escrever_json(sp, "data/sp.json")
+    escrever_json(rj, "data/rj.json")
+    escrever_json(pr, "data/pr.json")
+    escrever_json(mg, "data/mg.json")
+    escrever_json(sc, "data/sc.json")
+    escrever_json(rs, "data/rs.json")
+    escrever_json(pe, "data/pe.json")
+    escrever_json(ce, "data/ce.json")
+    escrever_json(ba, "data/ba.json")
+    escrever_json(am, "data/am.json")
+    escrever_json(df, "data/df.json")
