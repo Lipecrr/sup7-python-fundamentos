@@ -6,13 +6,16 @@ from src.inputs import exemplo_questionary
 from src.exercicios import exercicio_variaveis
 from src.exercicio_pratico_json import resolucao
 from src.exercicio_pratico_json import exercicios
+from src.orientacao_objeto import classes
 
 def main():
+    classes.exercicio_marca()
+    classes.exercicio_ticket()
 
-    exercicios.exercicio_01()
-    exercicios.exercicio_02()
-    exercicios.exercicio_03()
-    exercicios.exercicio_04()
+    # exercicios.exercicio_01()
+    # exercicios.exercicio_02()
+    # exercicios.exercicio_03()
+    # exercicios.exercicio_04()
 
     # resolucao.resolver()
 
