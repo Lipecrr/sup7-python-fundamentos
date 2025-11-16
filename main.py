@@ -7,10 +7,13 @@ from src.exercicios import exercicio_variaveis
 from src.exercicio_pratico_json import resolucao
 from src.exercicio_pratico_json import exercicios
 from src.orientacao_objeto import classes
+from src.orientacao_objeto import metodos
 
 def main():
-    classes.exercicio_marca()
-    classes.exercicio_ticket()
+    metodos.exercicio_passagem()
+
+    # classes.exercicio_marca()
+    # classes.exercicio_ticket()
 
     # exercicios.exercicio_01()
     # exercicios.exercicio_02()

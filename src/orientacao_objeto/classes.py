@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 import os
 import platform
 from typing import List
@@ -217,8 +217,6 @@ def exercicio_ticket():
     console.print(tabela2)
 
 
-
-
 def limpar_tela():
     sistema = platform.system()
     if sistema == "Windows":
@@ -229,6 +227,16 @@ def limpar_tela():
 
 console = Console()
 desenvolvedoras: List[Desenvolvedora] = []
+
+
+def menu_sistema():
+    menu_geral = ""
+    while menu_geral != "sair":
+        menu_geral = questionary.select("Escolha o sistema", choices=["Desenvolvedora", "Sair"]).ask().lower()
+        limpar_tela()
+        if menu_geral == "desenvolvedora":
+            exemplo_crud_lista_objetos()
+
 
 def exemplo_crud_lista_objetos():
     menu = ""
@@ -281,4 +289,105 @@ def listar_desenvolvedoras():
     
     console.print(table)
 
-exemplo_crud_lista_objetos()
+# exemplo_crud_lista_objetos()
+
+class Dono:
+    def __init__(self):
+        self.nome: str = None
+        self.cpf: str = None
+        self.bairro: str = None
+        self.rua: str = None
+        self.numero: int = None
+
+
+class Animal:
+    def __init__(self):
+        self.raca: str = None
+        self.dono: Dono = None
+        self.data_nascimento: date = None
+        self.peso: float = None
+        self.altura: float = None
+        self.sexo: str = None
+        self.cor: str = None
+        self.origem_raca: str = None
+
+
+animais: List[Animal] = []
+
+
+def menu_sistema():
+    menu_geral = ""
+    while menu_geral != "sair":
+        menu_geral = questionary.select("Escolha o sistema", choices=["Animais", "Sair"]).ask().lower()
+        limpar_tela()
+        if menu_geral == "animais":
+            crud_lista_animais()
+
+
+def crud_lista_animais():
+    menu = ""
+    while menu != "sair":
+        menu = questionary.select("Escolha o menu", choices=["Adicionar", "Listar", "Sair"]).ask().lower()
+        limpar_tela()
+        if menu == "adicionar":
+            adicionar_animais()
+        elif menu == "listar":
+            listar_animais()
+
+
+def adicionar_animais():
+    console.print("Cadastro de animal")
+
+    animal = Animal()
+    animal.raca = questionary.text("Digite o nome da raça").ask()
+    data_str = input("Digite a data de nascimento (DD/MM/AAAA)")
+    animal.data_nascimento = datetime.strptime(data_str, "%d/%m/%Y")
+    animal.peso = float(input("Digite o peso"))
+    animal.altura = float(input("Digite a altura"))
+    animal.sexo = questionary.text("Digite o sexo").ask()
+    animal.cor = questionary.text("Digite a cor do animal").ask()
+    animal.origem_raca = questionary.text("Digite a origem da raça").ask()
+
+    animal.dono = Dono()
+    animal.dono.nome = questionary.text("Digite o nome do dono").ask()
+    animal.dono.cpf = questionary.text("Digite o CPF").ask()
+    animal.dono.bairro = questionary.text("Digite o bairro").ask()
+    animal.dono.rua = questionary.text("Digite a rua").ask()
+    animal.dono.numero = int(input("Digite o numero"))
+
+    animais.append(animal)
+    console.print("Animal cadastrada com sucesso")
+    input("Pressione ENTER para continuar...")
+    limpar_tela()
+
+
+def listar_animais():
+    if len(animais) == 0:
+        console.print("Nenhum animal cadastrado")
+        input("Pressione ENTER para continuar...")
+        limpar_tela()
+        return
+
+    table = Table("Raça", "Data de nascimento", "Peso", "Altura", "Sexo", "Cor", "Origem da Raça", "Dono", "CPF do dono", "Bairro", "Rua", "Número")
+
+    for i in range(0, len(animais)):
+        animal = animais[i]
+        table.add_row(
+            animal.raca,
+            str(animal.data_nascimento),
+            str(animal.peso),
+            str(animal.altura),
+            animal.sexo,
+            animal.cor,
+            animal.origem_raca,
+            animal.dono.nome,
+            animal.dono.cpf,
+            animal.dono.bairro,
+            animal.dono.rua,
+            str(animal.dono.numero)
+        )
+    
+    
+    console.print(table)
+
+crud_lista_animais()
